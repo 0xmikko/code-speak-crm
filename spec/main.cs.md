@@ -6,7 +6,7 @@
 
 - Next.js (App Router, TypeScript)
 - Postgres (managed), Drizzle ORM and Drizzle Kit migrations
-- Auth: Google OAuth (via NextAuth.js with Google provider)
+- Auth: Email + password auth
 - UI: Tailwind CSS + Headless UI; Kanban: `react-kanban`
 - Package manager: pnpm (ts-pnpm)
 
@@ -22,12 +22,12 @@
 
 - Left-side vertical tab bar with four tabs: Assets, Protocols, LPs, Users.
 - Top bar: global search field (center-left) and Login/Profile button (top-right).
-- Unauthenticated users land on a start screen with brief app intro and a Sign In with Google button.
+- Unauthenticated users land on a start screen with brief app intro and a Sign In with button.
 - Authenticated users are routed to Assets by default.
 
 #### Authorization & Access
 
-- Google OAuth required for app access beyond the start screen.
+- Email + Password required for app access beyond the start screen.
 - First version: omit approval flows. A boolean flag `is_valid_user` in `users` controls access to app features.
 - After sign-up, `is_valid_user=false` by default; an admin sets it `true` manually in DB.
 - Route protection: all domain pages require authenticated session AND `is_valid_user=true`.
@@ -180,14 +180,14 @@
   - No need to add full-text or vector databases
 
 - Auth States
-  - Start screen for unauthenticated users with Sign In (Google).
+  - Start screen for unauthenticated users with Sign In.
   - Profile menu (top-right) shows email, sign out, and link to Users tab if admin.
 
 #### User Flows
 
 - Unauthenticated → Sign In
-  - User opens app and sees the start screen with a Sign In with Google button.
-  - After OAuth, if `is_valid_user=false`, show a Restricted Access screen ("Pending access; an admin will enable your account") and provide Sign Out; do not allow navigating tabs.
+  - User opens app and sees the start screen with a Sign In with email credentials
+  <!-- - After OAuth, if `is_valid_user=false`, show a Restricted Access screen ("Pending access; an admin will enable your account") and provide Sign Out; do not allow navigating tabs. -->
   - If `is_valid_user=true`, route to `Assets`.
 
 - Authenticated (valid) → Default landing
