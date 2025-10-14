@@ -47,17 +47,20 @@
             "desktop_application": false,
             "embedded_application": false,
             "has_django": false,
+            "has_external_apis": false,
             "has_javascript": true,
             "has_node_js": true,
             "has_python": false,
             "has_server": true,
+            "has_social_logins": false,
             "has_sql_database": true,
             "library": false,
             "mobile_application": false,
             "server": false,
             "serverless_application": false,
             "web_application": true
-        }
+        },
+        "external_apis": "external_apis.json"
     },
     "phase_manager": {
         "history": [
@@ -72,6 +75,10 @@
             {
                 "checkpoint": "{\"run\":{\"id\":\"e5dd56cc-6cbe-44f8-b6ab-cd08bb2bfd3e\",\"kind\":\"build\"},\"phase_id\":\"EvaluateCriteria\",\"additional_id\":null}",
                 "timestamp": "2025-10-14T13:31:25.809323+00:00"
+            },
+            {
+                "checkpoint": "{\"run\":{\"id\":\"e5dd56cc-6cbe-44f8-b6ab-cd08bb2bfd3e\",\"kind\":\"build\"},\"phase_id\":\"AnalyzeExternalApis\",\"additional_id\":null}",
+                "timestamp": "2025-10-14T13:31:38.615907+00:00"
             }
         ]
     }
