@@ -1,0 +1,51 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { auth } from '@/lib/auth';
+import { db } from '@/lib/db';
+import { lpContacts } from '@/domains/lps/schema';
+import { z } from 'zod';
+
+const createContactSchema = z.object({
+  name: z.string().min(1),
+  role: z.string().nullable(),
+  phone: z.string().nullable(),
+  telegram: z.string().nullable(),
+  github: z.string().nullable(),
+  avatarUrl: z.string().url().nullable(),
+});
+
+export async function POST(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const session = await auth();
+    if (!session?.user || !(session.user as any).isValidUser) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const { id: lpId } = params;
+    const body = await request.json();
+    const validatedData = createContactSchema.parse(body);
+
+    const [newContact] = await db
+      .insert(lpContacts)
+      .values({
+        ...validatedData,
+        lpId,
+      })
+      .returning();
+
+    return NextResponse.json(newContact, { status: 201 });
+  } catch (error) {
+    console.error('Error creating contact:', error);
+
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: 'Invalid data', details: error.errors },
+        { status: 400 }
+      );
+    }
+
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+  }
+}
