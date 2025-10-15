@@ -1,6 +1,6 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import Link from 'next/link';
@@ -58,13 +58,13 @@ export default function HomePage() {
               Your account is being reviewed. An admin will enable your access soon.
             </p>
             <p className="mt-4 text-center text-xs text-gray-500">
-              Signed in as {session.user.email}
+              Signed in as {session.user?.email}
             </p>
           </div>
           <div className="mt-8 space-y-6">
             <div>
               <button
-                onClick={() => router.push('/auth/signout')}
+                onClick={() => signOut()}
                 className="group relative flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
               >
                 Sign Out

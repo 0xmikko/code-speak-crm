@@ -1,10 +1,13 @@
-import type { LPStatus } from '@/lib/db-types';
+import type { LpStatus } from '@/lib/db-types';
+
+// Re-export types for convenience
+export type { LpStatus as LPStatus } from '@/lib/db-types';
 
 export interface LP {
   id: string;
   name: string;
   contactEmail: string | null;
-  status: LPStatus;
+  status: LpStatus;
   notes: string | null;
   createdAt: string;
 }
@@ -33,14 +36,14 @@ export interface LPWithDetails extends LP {
   chainAddresses: LPChainAddress[];
 }
 
-export const LP_STATUS_LABELS: Record<LPStatus, string> = {
+export const LP_STATUS_LABELS: Record<LpStatus, string> = {
   unknown: 'Unknown',
   prospect: 'Prospect',
   active: 'Active',
   paused: 'Paused',
 };
 
-export const LP_STATUS_COLORS: Record<LPStatus, string> = {
+export const LP_STATUS_COLORS: Record<LpStatus, string> = {
   unknown: 'bg-gray-100 text-gray-800',
   prospect: 'bg-yellow-100 text-yellow-800',
   active: 'bg-green-100 text-green-800',
