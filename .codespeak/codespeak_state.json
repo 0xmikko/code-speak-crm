@@ -68,7 +68,8 @@
         },
         "external_apis": "external_apis.json",
         "commit_message": "Implement full-featured Decentralized Protocol CRM with Next.js, Drizzle, and NextAuth",
-        "methods_to_test": "methods_to_test.json"
+        "methods_to_test": "methods_to_test.json",
+        "change_request": "I tried to install and got this, can you fix it, and please do check `pnmp i && pnpm build` until it compiltes well\n\n➜  code-speak-crm git:(main) pnpm i\n ERR_PNPM_FETCH_404  GET https://registry.npmjs.org/@next-auth%2Fdrizzle-adapter: Not Found - 404\n\nThis error happened while installing a direct dependency of /home/mikko/Coding/code-speak-crm\n\n@next-auth/drizzle-adapter is not in the npm registry, or you have no permission to fetch it.\n\nAn authorization header was used: Bearer npm_[hidden]\nProgress: resolved 1, reused 0, downloaded 0, added 0"
     },
     "phase_manager": {
         "history": [
@@ -119,6 +120,10 @@
             {
                 "checkpoint": "{\"run\":{\"id\":\"93c8a61f-a8ff-42a0-9999-e3770cd201f7\",\"kind\":\"change_request\"},\"phase_id\":\"Init\",\"additional_id\":null}",
                 "timestamp": "2025-10-15T11:31:06.583522+00:00"
+            },
+            {
+                "checkpoint": "{\"run\":{\"id\":\"93c8a61f-a8ff-42a0-9999-e3770cd201f7\",\"kind\":\"change_request\"},\"phase_id\":\"ProcessChangeRequest\",\"additional_id\":null}",
+                "timestamp": "2025-10-15T11:31:06.602980+00:00"
             }
         ]
     }
