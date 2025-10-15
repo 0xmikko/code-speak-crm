@@ -9,3 +9,4 @@ This error happened while installing a direct dependency of /home/mikko/Coding/c
 
 An authorization header was used: Bearer npm_[hidden]
 Progress: resolved 1, reused 0, downloaded 0, added 0
+
