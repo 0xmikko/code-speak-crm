@@ -19,5 +19,5 @@ const schema = {
   ...lpsSchema,
 };
 
-const client = postgres(env.DATABASE_URL);
+const client = postgres(env.DATABASE_URL || 'postgresql://localhost:5432/dummy');
 export const db = drizzle(client, { schema });
