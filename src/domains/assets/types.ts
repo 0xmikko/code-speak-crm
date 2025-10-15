@@ -1,5 +1,8 @@
 import type { AssetStage, AssetSource } from '@/lib/db-types';
 
+// Re-export types for convenience
+export type { AssetStage, AssetSource } from '@/lib/db-types';
+
 export interface Asset {
   id: string;
   assetSymbol: string;

@@ -31,7 +31,6 @@ export async function GET(request: NextRequest) {
     const assetResults = await db
       .select({
         id: assets.id,
-        type: 'asset' as const,
         title: assets.assetSymbol,
         subtitle: assets.assetAddress,
         currentStage: assets.currentStage,
@@ -49,7 +48,6 @@ export async function GET(request: NextRequest) {
     const protocolResults = await db
       .select({
         id: protocols.id,
-        type: 'protocol' as const,
         title: protocols.name,
         subtitle: protocols.summary,
       })
@@ -58,8 +56,8 @@ export async function GET(request: NextRequest) {
       .limit(5);
 
     return NextResponse.json({
-      assets: assetResults,
-      protocols: protocolResults,
+      assets: assetResults.map(asset => ({ ...asset, type: 'asset' as const })),
+      protocols: protocolResults.map(protocol => ({ ...protocol, type: 'protocol' as const })),
     });
   } catch (error) {
     console.error('Error searching:', error);

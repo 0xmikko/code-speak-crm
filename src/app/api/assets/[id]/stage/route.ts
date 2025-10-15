@@ -62,7 +62,7 @@ export async function PATCH(
         assetId,
         fromStage,
         toStage: newStage,
-        movedByUserId: session.user.id,
+        movedByUserId: session.user?.id!,
       });
     });
 
