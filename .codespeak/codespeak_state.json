@@ -69,7 +69,7 @@
         "external_apis": "external_apis.json",
         "commit_message": "fix: resolve NextAuth dependency and build issues",
         "methods_to_test": "methods_to_test.json",
-        "change_request": "",
+        "change_request": "I laucnhed `pnpm build` and got errors, please fix! \n\n> code-speak-crm@0.1.0 build /home/mikko/Coding/code-speak-crm\n> next build\n\n   ▲ Next.js 14.0.4\n   - Experiments (use at your own risk):\n     · typedRoutes\n\nFailed to compile.\n\n./src/app/api/assets/[id]/business-dd/route.ts\nModule not found: Can't resolve '@/lib/auth'\n\nhttps://nextjs.org/docs/messages/module-not-found\n\n./src/app/api/assets/[id]/business-dd/route.ts\nModule not found: Can't resolve '@/lib/db'\n\nhttps://nextjs.org/docs/messages/module-not-found\n\n./src/app/api/assets/[id]/integration-build/route.ts\nModule not found: Can't resolve '@/lib/auth'\n\nhttps://nextjs.org/docs/messages/module-not-found\n\n./src/app/api/assets/[id]/integration-build/route.ts\nModule not found: Can't resolve '@/lib/db'\n\nhttps://nextjs.org/docs/messages/module-not-found\n\n./src/app/api/assets/[id]/integration-build/route.ts\nModule not found: Can't resolve '@/lib/db-types'\n\nhttps://nextjs.org/docs/messages/module-not-found\n\n\n> Build failed because of webpack errors\n   Creating an optimized production build  . ELIFECYCLE  Command failed with exit code 1.",
         "implemented_change_requests": "implemented_change_requests.json"
     },
     "phase_manager": {
@@ -141,6 +141,10 @@
             {
                 "checkpoint": "{\"run\":{\"id\":\"909e3b3f-0e09-44d6-ba34-0742b8b8734c\",\"kind\":\"change_request\"},\"phase_id\":\"Init\",\"additional_id\":null}",
                 "timestamp": "2025-10-15T12:29:46.399362+00:00"
+            },
+            {
+                "checkpoint": "{\"run\":{\"id\":\"909e3b3f-0e09-44d6-ba34-0742b8b8734c\",\"kind\":\"change_request\"},\"phase_id\":\"ProcessChangeRequest\",\"additional_id\":null}",
+                "timestamp": "2025-10-15T12:29:46.420932+00:00"
             }
         ]
     }
