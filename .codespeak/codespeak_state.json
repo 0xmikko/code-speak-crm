@@ -133,6 +133,10 @@
             {
                 "checkpoint": "{\"run\":{\"id\":\"93c8a61f-a8ff-42a0-9999-e3770cd201f7\",\"kind\":\"change_request\"},\"phase_id\":\"ImplementChangeRequest\",\"additional_id\":null}",
                 "timestamp": "2025-10-15T11:48:16.127938+00:00"
+            },
+            {
+                "checkpoint": "{\"run\":{\"id\":\"93c8a61f-a8ff-42a0-9999-e3770cd201f7\",\"kind\":\"change_request\"},\"phase_id\":\"Done\",\"additional_id\":null}",
+                "timestamp": "2025-10-15T11:48:16.162725+00:00"
             }
         ]
     }
